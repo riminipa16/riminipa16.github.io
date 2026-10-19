@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erasmus Mundus Applicant Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            500: '#334e68',
+                            800: '#102a43',
+                            900: '#0b1b2b',
+                        },
+                        accent: {
+                            blue: '#2563eb',
+                            teal: '#0d9488',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Banner / Quick Actions -->
+    <div class="bg-navy-900 text-white text-xs md:text-sm py-2 px-4 text-center flex justify-between items-center z-50 sticky top-0 border-b border-navy-800">
+        <div class="flex items-center gap-2 mx-auto sm:mx-0">
+            <span class="bg-accent-blue text-white font-semibold px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider">Live Customizer</span>
+            <span>Customize this template live and download your final portfolio for GitHub Pages!</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+            <button onclick="toggleEditorDrawer()" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded text-xs font-medium transition flex items-center gap-1.5 shadow">
+                <i class="fa-solid fa-pen-to-square">契約</i> Edit Portfolio Data
+            </button>
+            <button onclick="openDeployModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded text-xs font-medium transition flex items-center gap-1.5 shadow">
+                <i class="fa-brands fa-github"></i> Deploy to GitHub Pages
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Sticky Navigation Header -->
+    <header class="sticky top-[37px] z-40 glass border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo / Brand Name -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-lg bg-navy-800 text-white flex items-center justify-center font-bold text-lg group-hover:bg-accent-blue transition">
+                    <span id="nav-initials">JD</span>
+                </div>
+                <div class="flex flex-col">
+                    <span id="nav-name" class="font-bold text-base leading-tight">Alex Johnson</span>
+                    <span id="nav-sub" class="text-xs text-slate-500 dark:text-slate-400">Erasmus Applicant</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-accent-blue transition">About</a>
+                <a href="#education" class="hover:text-accent-blue transition">Education</a>
+                <a href="#research" class="hover:text-accent-blue transition">Research & Projects</a>
+                <a href="#skills" class="hover:text-accent-blue transition">Skills & Languages</a>
+                <a href="#leadership" class="hover:text-accent-blue transition">Leadership</a>
+                <a href="#contact" class="hover:text-accent-blue transition">Contact</a>
+            </nav>
+
+            <!-- Actions & Mobile Menu Toggle -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleDarkMode()" class="p-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 transition">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <a id="cv-link" href="#" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-navy-800 hover:bg-navy-900 dark:bg-accent-blue dark:hover:bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span>Europass CV</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 space-y-2 text-sm font-medium">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">About</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">Education</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">Research & Projects</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">Skills & Languages</a>
+            <a href="#leadership" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">Leadership</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-1.5 hover:text-accent-blue">Contact</a>
+            <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex gap-2">
+                <button onclick="toggleEditorDrawer(); toggleMobileMenu();" class="w-full py-2 bg-blue-600 text-white rounded text-xs text-center font-medium">Edit Portfolio</button>
+                <button onclick="openDeployModal(); toggleMobileMenu();" class="w-full py-2 bg-emerald-600 text-white rounded text-xs text-center font-medium">Deploy Guide</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <!-- 1. HERO / ABOUT ME SECTION -->
+        <section id="about" class="pt-6">
+            <div class="bg-white dark:bg-slate-800/80 rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-slate-700/60 shadow-xl relative overflow-hidden">
+                <!-- Background Accent Graphic -->
+                <div class="absolute -top-12 -right-12 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <!-- Profile Avatar -->
+                    <div class="relative shrink-0">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-tr from-accent-blue to-emerald-400 shadow-lg">
+                            <img id="hero-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80" alt="Profile" class="w-full h-full object-cover rounded-full bg-slate-100 dark:bg-slate-900">
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-emerald-500 text-white p-1.5 rounded-full text-xs shadow-md" title="Ready for Mobility">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                    </div>
+
+                    <!-- Intro Text -->
+                    <div class="flex-1 text-center md:text-left space-y-4">
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                                <i class="fa-solid fa-graduation-cap"></i> <span id="hero-target-program">Erasmus Mundus Applicant</span>
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                                <i class="fa-solid fa-circle-check"></i> GPA: <span id="hero-gpa">3.85 / 4.0</span>
+                            </span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                            Hi, I'm <span id="hero-name" class="text-accent-blue">Alex Johnson</span>
+                        </h1>
+
+                        <p id="hero-bio" class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                            Passionate Computer Science graduate specializing in Artificial Intelligence and Sustainable Data Analytics. Applying for Erasmus Joint Master Degrees to contribute to interdisciplinary European research initiatives. Experienced in machine learning models and cross-cultural volunteer projects.
+                        </p>
+
+                        <!-- Highlights Tags -->
+                        <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3 text-xs text-slate-500 dark:text-slate-400">
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-slate-400"></i> <span id="hero-location">Berlin, Germany</span></div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-slate-400"></i> <span id="hero-email">alex.johnson@example.com</span></div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-building-columns text-slate-400"></i> <span id="hero-uni">Technical University of Berlin</span></div>
+                        </div>
+
+                        <!-- CTA Links -->
+                        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                            <a id="btn-linkedin" href="https://linkedin.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center gap-2 transition">
+                                <i class="fa-brands fa-linkedin text-blue-600 text-sm"></i> LinkedIn Profile
+                            </a>
+                            <a id="btn-github" href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center gap-2 transition">
+                                <i class="fa-brands fa-github text-slate-800 dark:text-white text-sm"></i> GitHub Repos
+                            </a>
+                            <a id="btn-scholar" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center gap-2 transition">
+                                <i class="fa-solid fa-graduation-cap text-emerald-600 text-sm"></i> Google Scholar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. EDUCATION & ACADEMIC HIGHLIGHTS -->
+        <section id="education" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold flex items-center gap-2.5">
+                    <i class="fa-solid fa-graduation-cap text-accent-blue"></i> Academic Qualifications
+                </h2>
+                <span class="text-xs text-slate-500 font-mono">ECTS & Honors</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Degree Card -->
+                <div class="bg-white dark:bg-slate-800/60 p-6 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-4 hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-accent-blue uppercase tracking-wider">Bachelor of Science</span>
+                            <h3 id="edu-degree" class="text-lg font-bold text-slate-900 dark:text-white mt-1">B.Sc. in Computer Science & Data Science</h3>
+                            <p id="edu-school" class="text-sm font-medium text-slate-600 dark:text-slate-300">Technical University of Berlin</p>
+                        </div>
+                        <span id="edu-years" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">2020 – 2024</span>
+                    </div>
+                    <div class="text-xs space-y-2 text-slate-600 dark:text-slate-300">
+                        <p><strong class="text-slate-800 dark:text-white">GPA / Final Grade:</strong> <span id="edu-gpa-detail">1.3 (German Scale) / First Class Honors (180 ECTS)</span></p>
+                        <p><strong class="text-slate-800 dark:text-white">Key Coursework:</strong> <span id="edu-courses">Machine Learning, Distributed Systems, Data Structures & Algorithms, Environmental Informatics, Ethics in AI.</span></p>
+                    </div>
+                </div>
+
+                <!-- Academic Distinction / Thesis Summary Card -->
+                <div class="bg-white dark:bg-slate-800/60 p-6 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-4 hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">B.Sc. Thesis Project</span>
+                            <span class="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-medium">Grade 1.0</span>
+                        </div>
+                        <h3 id="thesis-title" class="text-base font-bold text-slate-900 dark:text-white mt-2">
+                            "Deep Learning Frameworks for High-Resolution Satellite Climate Monitoring"
+                        </h3>
+                        <p id="thesis-abstract" class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                            Developed a convolutional neural network model reducing computational overhead by 30% while retaining high spatial precision on Copernicus Earth observation satellite data.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 dark:border-slate-700/50 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-award text-amber-500 mr-1"></i> Outstanding Thesis Award Candidate</span>
+                        <a id="thesis-link" href="#" class="text-accent-blue hover:underline font-medium">Read Abstract PDF <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RESEARCH & PROJECTS WITH FILTER -->
+        <section id="research" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-2xl font-bold flex items-center gap-2.5">
+                        <i class="fa-solid fa-flask text-accent-blue"></i> Research & Projects
+                    </h2>
+                    <p class="text-xs text-slate-500">Academic research papers, laboratory work, and technical implementations</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg text-xs font-medium self-start sm:self-auto">
+                    <button onclick="filterProjects('all')" class="project-filter-btn active px-3 py-1.5 rounded-md transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm" data-filter="all">All</button>
+                    <button onclick="filterProjects('research')" class="project-filter-btn px-3 py-1.5 rounded-md transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="research">Research</button>
+                    <button onclick="filterProjects('technical')" class="project-filter-btn px-3 py-1.5 rounded-md transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="technical">Technical</button>
+                    <button onclick="filterProjects('coursework')" class="project-filter-btn px-3 py-1.5 rounded-md transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="coursework">Coursework</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 p-5 space-y-3 flex flex-col justify-between hover:shadow-lg transition" data-category="research">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">Research</span>
+                            <span class="text-xs text-slate-400">2024</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Autonomous River Microplastic Detection Pipeline</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Co-authored research paper on computer vision algorithms deployed on edge computing devices for real-time river pollution monitoring.
+                        </p>
+                    </div>
+                    <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/50">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">Python</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">PyTorch</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">OpenCV</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1">
+                            <a href="#" class="text-accent-blue font-semibold hover:underline flex items-center gap-1">DOI / Paper <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-slate-800 dark:hover:text-white"><i class="fa-brands fa-github text-sm"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 p-5 space-y-3 flex flex-col justify-between hover:shadow-lg transition" data-category="technical">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Technical</span>
+                            <span class="text-xs text-slate-400">2023</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Distributed Sensor Network Dashboard</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Built a scalable web-based dashboard visualising temperature & air quality metrics across 15+ IoT urban sensing stations.
+                        </p>
+                    </div>
+                    <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/50">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">React</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">Node.js</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">Docker</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1">
+                            <a href="#" class="text-accent-blue font-semibold hover:underline flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-slate-800 dark:hover:text-white"><i class="fa-brands fa-github text-sm"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 p-5 space-y-3 flex flex-col justify-between hover:shadow-lg transition" data-category="coursework">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">Coursework</span>
+                            <span class="text-xs text-slate-400">2023</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Cross-Language NLP Sentiment Evaluator</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Course capstone evaluating multi-lingual BERT models on European news datasets in English, German, and French.
+                        </p>
+                    </div>
+                    <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/50">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">NLP</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">HuggingFace</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-mono text-slate-600 dark:text-slate-300">Python</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1">
+                            <a href="#" class="text-accent-blue font-semibold hover:underline flex items-center gap-1">Report PDF <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-slate-800 dark:hover:text-white"><i class="fa-brands fa-github text-sm"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SKILLS & EUROPASS LANGUAGE PROFICIENCY -->
+        <section id="skills" class="space-y-6">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold flex items-center gap-2.5">
+                    <i class="fa-solid fa-gears text-accent-blue"></i> Skills & Language Proficiency
+                </h2>
+                <p class="text-xs text-slate-500">Technical competencies and standardized European CEFR language levels</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical & Academic Skills -->
+                <div class="bg-white dark:bg-slate-800/60 p-6 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-5">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-code text-blue-500"></i> Technical & Research Skills
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Programming Languages</span>
+                            <div id="skills-lang-tags" class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">Python</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">C++</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">R</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">SQL</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Frameworks & Tools</span>
+                            <div id="skills-tools-tags" class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">PyTorch</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">TensorFlow</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">Git / GitHub</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">Docker</span>
+                                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg font-medium">LaTeX</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Research Methodologies</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium border border-blue-200 dark:border-blue-900">Statistical Analysis</span>
+                                <span class="px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium border border-blue-200 dark:border-blue-900">Experimental Design</span>
+                                <span class="px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium border border-blue-200 dark:border-blue-900">Peer Review & Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Europass Languages -->
+                <div class="bg-white dark:bg-slate-800/60 p-6 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-5">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-language text-emerald-500"></i> Languages (Europass CEFR)
+                        </h3>
+                        <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-500">Official Standards</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs">
+                        <!-- Language 1 -->
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg space-y-1.5 border border-slate-100 dark:border-slate-800">
+                            <div class="flex justify-between items-center font-bold text-sm">
+                                <span>English</span>
+                                <span id="lang-eng-level" class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs">C1 / Advanced (IELTS 8.0)</span>
+                            </div>
+                            <p class="text-slate-500">Proficient User — Capable of complex academic research & publishing.</p>
+                        </div>
+
+                        <!-- Language 2 -->
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg space-y-1.5 border border-slate-100 dark:border-slate-800">
+                            <div class="flex justify-between items-center font-bold text-sm">
+                                <span>German</span>
+                                <span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs">Native / C2</span>
+                            </div>
+                            <p class="text-slate-500">Native language skills with full academic fluency.</p>
+                        </div>
+
+                        <!-- Language 3 -->
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg space-y-1.5 border border-slate-100 dark:border-slate-800">
+                            <div class="flex justify-between items-center font-bold text-sm">
+                                <span>French</span>
+                                <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 text-xs">B1 / Intermediate</span>
+                            </div>
+                            <p class="text-slate-500">Independent User — Everyday interaction & basic academic reading.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. LEADERSHIP & INTERNATIONAL MOBILITY -->
+        <section id="leadership" class="space-y-6">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold flex items-center gap-2.5">
+                    <i class="fa-solid fa-people-group text-accent-blue"></i> Leadership & Cultural Engagement
+                </h2>
+                <p class="text-xs text-slate-500">Extracurricular activities, volunteer work, and international exchange experience</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-handshake-angle text-lg"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base">International Student Mentor</h3>
+                    <p class="text-xs text-slate-500">Erasmus Student Network (ESN)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Guided 20+ incoming international exchange students with university integration, accommodation, and cultural adaptation in Germany.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-code-commit text-lg"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base">Lead Coordinator</h3>
+                    <p class="text-xs text-slate-500">University Hackathon 2023</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Organized a 48-hour sustainable tech hackathon for 150+ participants, managing industry sponsorship and judge panels.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-earth-europe text-lg"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base">Summer Research School</h3>
+                    <p class="text-xs text-slate-500">University of Valencia, Spain</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Participated in an intensive 2-week mobility program on Climate Informatics alongside researchers from 12 European nations.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONTACT SECTION -->
+        <section id="contact" class="pt-6">
+            <div class="bg-navy-900 text-white rounded-2xl p-8 sm:p-12 text-center space-y-6 relative overflow-hidden shadow-2xl">
+                <div class="max-w-xl mx-auto space-y-3">
+                    <span class="text-xs font-semibold text-accent-blue uppercase tracking-widest bg-blue-500/20 px-3 py-1 rounded-full">Get In Touch</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold">Ready for Academic Collaboration</h2>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Interested in my research background or prospective student fit for Erasmus Mundus Joint Master Degrees? Feel free to reach out directly via email.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+                    <a id="contact-email-btn" href="mailto:alex.johnson@example.com" class="bg-accent-blue hover:bg-blue-600 text-white text-sm font-semibold px-6 py-3 rounded-lg transition shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+                    </a>
+                    <button onclick="copyContactEmail()" class="bg-navy-800 hover:bg-navy-700 text-slate-200 text-sm font-medium px-5 py-3 rounded-lg border border-navy-700 transition flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Email
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 mt-16 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© <span id="footer-year">2026</span> <span id="footer-name">Alex Johnson</span>. Tailored for Erasmus Mundus CV & SOP.</p>
+            <div class="flex gap-4">
+                <button onclick="toggleEditorDrawer()" class="text-accent-blue hover:underline">Edit Data</button>
+                <button onclick="openDeployModal()" class="text-emerald-600 dark:text-emerald-400 hover:underline">GitHub Setup Guide</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIVE EDIT DRAWER (SIDE PANEL) -->
+    <div id="editor-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white dark:bg-slate-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto border-l border-slate-200 dark:border-slate-700">
+        <div class="p-6 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-accent-blue text-lg"></i>
+                    <h3 class="font-bold text-lg text-slate-900 dark:text-white">Live Portfolio Customizer</h3>
+                </div>
+                <button onclick="toggleEditorDrawer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-500">Changes typed here update the webpage in real time!</p>
+
+            <div class="space-y-4 text-xs">
+                <!-- Personal Data Inputs -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-700 dark:text-slate-200 border-b pb-1">1. Personal Details</h4>
+                    <div>
+                        <label class="block font-medium mb-1">Full Name</label>
+                        <input id="inp-name" type="text" value="Alex Johnson" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Target Erasmus Program</label>
+                        <input id="inp-program" type="text" value="Erasmus Mundus Applicant" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Current University & Location</label>
+                        <input id="inp-uni" type="text" value="Technical University of Berlin" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Email Address</label>
+                        <input id="inp-email" type="email" value="alex.johnson@example.com" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">Short Bio / Statement</label>
+                        <textarea id="inp-bio" rows="3" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">Passionate Computer Science graduate specializing in Artificial Intelligence and Sustainable Data Analytics. Applying for Erasmus Joint Master Degrees to contribute to interdisciplinary European research initiatives.</textarea>
+                    </div>
+                </div>
+
+                <!-- Academic Details Inputs -->
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-slate-700 dark:text-slate-200 border-b pb-1">2. Academics & Thesis</h4>
+                    <div>
+                        <label class="block font-medium mb-1">Degree Title</label>
+                        <input id="inp-degree" type="text" value="B.Sc. in Computer Science & Data Science" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">GPA / Score</label>
+                        <input id="inp-gpa" type="text" value="3.85 / 4.0" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">B.Sc. Thesis Title</label>
+                        <input id="inp-thesis" type="text" value="Deep Learning Frameworks for High-Resolution Satellite Climate Monitoring" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                </div>
+
+                <!-- Profile Photo URL -->
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-slate-700 dark:text-slate-200 border-b pb-1">3. Profile Picture</h4>
+                    <div>
+                        <label class="block font-medium mb-1">Image URL</label>
+                        <input id="inp-img" type="text" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80" oninput="updatePortfolioData()" class="w-full p-2 rounded border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex flex-col gap-2">
+                <button onclick="downloadCustomizedHTML()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium text-xs flex items-center justify-center gap-2 shadow">
+                    <i class="fa-solid fa-download"></i> Download Customized index.html
+                </button>
+                <button onclick="toggleEditorDrawer()" class="w-full py-2 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded font-medium text-xs">Close Drawer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GITHUB DEPLOYMENT GUIDANCE MODAL -->
+    <div id="deploy-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-start">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-900 dark:bg-slate-700 text-white flex items-center justify-center text-xl">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Host Free on GitHub Pages</h3>
+                        <p class="text-xs text-slate-500">Step-by-step guide to get your URL for Europass CV</p>
+                    </div>
+                </div>
+                <button onclick="closeDeployModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Steps timeline -->
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                <div class="p-3 bg-slate-50 dark:bg-slate-900/60 rounded-lg space-y-1 border border-slate-200 dark:border-slate-700">
+                    <p class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="w-5 h-5 bg-accent-blue text-white rounded-full flex items-center justify-center text-[10px]">1</span> Download file
+                    </p>
+                    <p class="text-xs">Click the <strong>"Download Customized index.html"</strong> button inside the Live Customizer drawer or top menu.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 dark:bg-slate-900/60 rounded-lg space-y-1 border border-slate-200 dark:border-slate-700">
+                    <p class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="w-5 h-5 bg-accent-blue text-white rounded-full flex items-center justify-center text-[10px]">2</span> Create GitHub Repository
+                    </p>
+                    <p class="text-xs">Log in to <a href="https://github.com" target="_blank" class="text-accent-blue underline">GitHub.com</a> and create a new public repository named strictly: <code class="bg-slate-200 dark:bg-slate-800 px-1 py-0.5 rounded text-accent-blue font-mono">yourusername.github.io</code></p>
+                </div>
+
+                <div class="p-3 bg-slate-50 dark:bg-slate-900/60 rounded-lg space-y-1 border border-slate-200 dark:border-slate-700">
+                    <p class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="w-5 h-5 bg-accent-blue text-white rounded-full flex items-center justify-center text-[10px]">3</span> Upload `index.html`
+                    </p>
+                    <p class="text-xs">Click <strong>"Upload an existing file"</strong> in your repository, upload your customized <code class="bg-slate-200 dark:bg-slate-800 px-1 py-0.5 rounded font-mono">index.html</code>, and commit changes.</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 dark:bg-slate-900/60 rounded-lg space-y-1 border border-slate-200 dark:border-slate-700">
+                    <p class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-[10px]">4</span> Your Website is Live!
+                    </p>
+                    <p class="text-xs">Your portfolio will instantly be live at <code class="bg-slate-200 dark:bg-slate-800 px-1 py-0.5 rounded text-emerald-600 font-mono">https://yourusername.github.io</code>. Add this link directly into your Europass CV!</p>
+                </div>
+            </div>
+
+            <div class="pt-2 flex justify-end gap-3">
+                <button onclick="downloadCustomizedHTML()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-xs font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-download"></i> Download HTML Now
+                </button>
+                <button onclick="closeDeployModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded text-xs font-medium">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun';
+            }
+        }
+
+        // 2. Mobile Nav Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 3. Editor Drawer Toggle
+        function toggleEditorDrawer() {
+            const drawer = document.getElementById('editor-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // 4. Modal Open/Close
+        function openDeployModal() {
+            document.getElementById('deploy-modal').classList.remove('hidden');
+        }
+        function closeDeployModal() {
+            document.getElementById('deploy-modal').classList.add('hidden');
+        }
+
+        // 5. Live Portfolio Update Logic
+        function updatePortfolioData() {
+            const name = document.getElementById('inp-name').value;
+            const program = document.getElementById('inp-program').value;
+            const uni = document.getElementById('inp-uni').value;
+            const email = document.getElementById('inp-email').value;
+            const bio = document.getElementById('inp-bio').value;
+            const degree = document.getElementById('inp-degree').value;
+            const gpa = document.getElementById('inp-gpa').value;
+            const thesis = document.getElementById('inp-thesis').value;
+            const img = document.getElementById('inp-img').value;
+
+            // Update DOM Elements
+            if (name) {
+                document.getElementById('hero-name').innerText = name;
+                document.getElementById('nav-name').innerText = name;
+                document.getElementById('footer-name').innerText = name;
+                // Get initials
+                const initials = name.split(' ').map(n => n[0]).join('').substring(0,2);
+                document.getElementById('nav-initials').innerText = initials || 'JD';
+            }
+            if (program) document.getElementById('hero-target-program').innerText = program;
+            if (uni) {
+                document.getElementById('hero-uni').innerText = uni;
+                document.getElementById('edu-school').innerText = uni;
+            }
+            if (email) {
+                document.getElementById('hero-email').innerText = email;
+                document.getElementById('contact-email-btn').href = 'mailto:' + email;
+            }
+            if (bio) document.getElementById('hero-bio').innerText = bio;
+            if (degree) document.getElementById('edu-degree').innerText = degree;
+            if (gpa) {
+                document.getElementById('hero-gpa').innerText = gpa;
+            }
+            if (thesis) document.getElementById('thesis-title').innerText = '"' + thesis + '"';
+            if (img) document.getElementById('hero-img').src = img;
+        }
+
+        // 6. Project Category Filter
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const btns = document.querySelectorAll('.project-filter-btn');
+
+            // Style active button
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+                    btn.classList.remove('text-slate-600', 'dark:text-slate-400');
+                } else {
+                    btn.classList.remove('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+                    btn.classList.add('text-slate-600', 'dark:text-slate-400');
+                }
+            });
+
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 7. Copy Email Helper
+        function copyContactEmail() {
+            const email = document.getElementById('hero-email').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Copied email to clipboard: ' + email);
+        }
+
+        // 8. Download HTML File Utility
+        function downloadCustomizedHTML() {
+            const pageContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([pageContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
