@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Rimi Moni - Academic Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-indigo-500 inline-block animate-pulse"></span>
+                Most Rimi Moni
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-indigo-400 transition">About</a>
+                <a href="#education" class="hover:text-indigo-400 transition">Education</a>
+                <a href="#research" class="hover:text-indigo-400 transition">Research & Publications</a>
+                <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
+                <a href="#experience" class="hover:text-indigo-400 transition">Experience</a>
+                <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/riminipa16" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2 border border-slate-700">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24 border-b border-slate-800/80 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-6">
+                <i class="fas fa-graduation-cap"></i> Erasmus Mundus Applicant & CSE Graduate
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Most Rimi Moni</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-h-none max-w-2xl mx-auto mb-10 leading-relaxed">
+                B.Sc. in Computer Science and Engineering graduate specializing in Machine Learning, Explainable AI (XAI), and predictive modeling for academic and social impact.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#research" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-3 rounded-xl transition shadow-lg shadow-indigo-600/20">
+                    Explore Research & Projects
+                </a>
+                <a href="#contact" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-6 py-3 rounded-xl transition border border-slate-700">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
+
+        <!-- ABOUT & SKILLS -->
+        <section id="about" class="grid md:grid-cols-3 gap-8 items-start">
+            <div class="md:col-span-1 bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-user-circle text-indigo-400"></i> Quick Bio
+                </h3>
+                <ul class="space-y-3 text-sm text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-slate-500 w-5"></i> Dinajpur, Bangladesh[cite: 1]</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-envelope text-slate-500 w-5"></i> riminipa16@gmail.com[cite: 1]</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-language text-slate-500 w-5"></i> Bengali (Native), English (Fluent)[cite: 2]</li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 bg-slate-950/60 p-8 rounded-2xl border border-slate-800 space-y-6">
+                <h3 class="text-2xl font-bold text-white">About Me</h3>
+                <p class="text-slate-300 leading-relaxed">
+                    I am an ambitious Computer Science and Engineering graduate from the Canadian University of Bangladesh with a strong academic track record (GPA: 3.73/4.00)[cite: 1]. My core focus areas lie in Machine Learning, feature engineering, and Explainable AI (XAI). I am deeply passionate about applying computational methodologies to address educational patterns, cybersecurity challenges, and health analytics.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+                    <div>
+                        <h4 class="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wider">Programming & Tech</h4>
+                        <p class="text-sm text-slate-300">Python, C, C++, Java, SQL, HTML, CSS, JavaScript, WordPress[cite: 2]</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wider">Tools & Software</h4>
+                        <p class="text-sm text-slate-300">Scikit-learn, Pandas, NumPy, Jupyter, Excel, Adobe Creative Cloud[cite: 1, 2]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                    <i class="fas fa-graduation-cap text-indigo-500"></i> Education
+                </h2>
+            </div>
+            <div class="space-y-6">
+                <!-- CUB -->
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 relative">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">B.Sc. in Computer Science and Engineering</h3>
+                            <p class="text-indigo-400 font-medium">Canadian University of Bangladesh (CUB)[cite: 1]</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 text-sm font-semibold px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20 w-fit">
+                            Feb 2022 – Oct 2025 | GPA: 3.73/4.00[cite: 1]
+                        </span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-800/80">
+                        <p class="text-sm font-semibold text-slate-300 mb-1">Thesis: Phishing URL Detection Using Machine Learning: A Lightweight Offline Approach[cite: 1]</p>
+                        <p class="text-xs text-slate-400"><strong>Adviser:</strong> Md. Hasanuzzaman, Head of the Department[cite: 1] | <strong>Focus:</strong> Zero-Network-Dependency (ZND), Lexical Feature Engineering</p>
+                    </div>
+                </div>
+                <!-- GED & O-Level -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="text-lg font-bold text-white">High School Equivalency Credential (GED)</h4>
+                        <p class="text-indigo-400 text-sm font-medium">GED Testing Service, Washington, DC, USA[cite: 1]</p>
+                        <p class="text-xs text-slate-500 mt-1">Jul 2019 – Mar 2020[cite: 1]</p>
+                    </div>
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="text-lg font-bold text-white">GCE O Level (EQF Level 3)</h4>
+                        <p class="text-indigo-400 text-sm font-medium">Dinajpur School of Liberators / LAMB English Medium School[cite: 1]</p>
+                        <p class="text-xs text-slate-500 mt-1">May 2018 – Jul 2019 | Core Sciences, Math, English, Bengali[cite: 1]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH & PUBLICATIONS -->
+        <section id="research" class="space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                    <i class="fas fa-book-open text-indigo-500"></i> Research & Publications
+                </h2>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Publication Under Review -->
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Under Review / Submitted</span>
+                        <span class="text-xs text-slate-400">Manuscript No. CHBR-D-26-02186[cite: 1]</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white">
+                        "Explainable AI for Predicting Mathematics Avoidance in Higher Education: A Control-Value Theory Guided Approach"[cite: 1]
+                    </h3>
+                    <p class="text-sm text-slate-400">
+                        Md. Tazel Hossan, Md. Atiqur Rahman Sifat, Fahmida Fardousi, Muhammad Imtiaz Ahmed, <strong>Most Rimi Moni</strong>, and Tahmina Islam, <em>Computers in Human Behavior Reports</em>[cite: 1].
+                    </p>
+                </div>
+
+                <!-- Undergraduate Research Work -->
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Undergraduate Research Work (Aug 2025 – Dec 2025)[cite: 1]</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white">
+                        A Hybrid Stacking Ensemble Framework for Predicting Mathematics Avoidance Behavior: Integrating Explainable AI (XAI) for Pedagogical Sustainability in Bangladesh[cite: 1]
+                    </h3>
+                    <p class="text-xs text-slate-400"><strong>Supervisors:</strong> Tahmina Islam, Tajel Hossan[cite: 1]</p>
+                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-1 pt-2">
+                        <li>Conducted thorough literature review on behavioral indicators and control-value theory frameworks[cite: 1].</li>
+                        <li>Curated, cleaned, and sorted an original dataset of 1,953 records for predictive modeling[cite: 1].</li>
+                        <li>Applied EDA and built a hybrid stacking ensemble model to uncover behavioral patterns[cite: 1].</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                    <i class="fas fa-code text-indigo-500"></i> Technical Projects
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Predictive Modeling -->
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Advanced Predictive Modeling Portfolio</h3>
+                        <p class="text-sm text-slate-300 mb-4">
+                            Developed a suite of ML models including a <strong>Credit Scoring Model</strong> (supervised pipeline for consumer credit default risk) and <strong>Heart Disease & Diabetes Prediction</strong> classifiers utilizing SVM and ensemble techniques[cite: 2].
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800">
+                        <span class="text-xs font-semibold text-indigo-400">Python, Scikit-learn, Pandas, Matplotlib, Seaborn[cite: 2]</span>
+                    </div>
+                </div>
+
+                <!-- Computer Vision & Analytics -->
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Computer Vision & Specialized Analytics</h3>
+                        <p class="text-sm text-slate-300 mb-4">
+                            Designed a deep neural network architecture for <strong>Handwritten Character Recognition</strong> with image preprocessing, and performed rigorous <strong>Stock Market Analysis</strong> using Time Series methodologies and rolling window indicators[cite: 2].
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800">
+                        <span class="text-xs font-semibold text-indigo-400">Jupyter Notebook, XGBoost, NumPy, Pandas[cite: 2]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & EXTRACURRICULARS -->
+        <section id="experience" class="space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                    <i class="fas fa-briefcase text-indigo-500"></i> Experience & Leadership
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <h3 class="text-lg font-bold text-white">Professional Experience</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Private Tutor | Self-Employed, Dhaka[cite: 2]</h4>
+                            <p class="text-xs text-indigo-400">May 2022 – Present[cite: 2]</p>
+                            <p class="text-xs text-slate-300 mt-1">Teaching English medium students for 4+ years, crafting customized lesson plans and problem-solving strategies[cite: 2].</p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <h4 class="text-sm font-semibold text-white">Graphic Designer | Fiverr (Level 1 Seller)[cite: 1, 2]</h4>
+                            <p class="text-xs text-indigo-400">Jun 2020 – Present[cite: 1, 2]</p>
+                            <p class="text-xs text-slate-300 mt-1">Collaborating with international clients using Adobe Creative Suite to deliver high-quality visual designs[cite: 2].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <h3 class="text-lg font-bold text-white">Leadership & Honors</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Director of Conference Management, LIBMUN[cite: 1]</h4>
+                            <p class="text-xs text-indigo-400">2018[cite: 1]</p>
+                            <p class="text-xs text-slate-300 mt-1">Managed end-to-end logistics, venue operations, and crisis resolution for all committee sessions[cite: 1].</p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <h4 class="text-sm font-semibold text-white">Awards & Contests[cite: 2]</h4>
+                            <p class="text-xs text-slate-300 mt-1">
+                                • <strong>8th Place</strong>, Kickoff Programming Contest, CUB (Apr 2022)[cite: 2]<br>
+                                • <strong>1st Runner Up (Regional)</strong>, Bangladesh Math Olympiad (2016)[cite: 2]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="bg-gradient-to-br from-indigo-950/40 to-slate-950 p-8 rounded-2xl border border-indigo-900/40 text-center space-y-6">
+            <h2 class="text-3xl font-bold text-white">Let's Connect</h2>
+            <p class="text-slate-300 max-w-xl mx-auto text-sm">
+                Interested in my research, academic background, or potential Erasmus Mundus collaboration? Feel free to reach out via email or GitHub.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="mailto:riminipa16@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-3 rounded-xl transition flex items-center gap-2">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://github.com/riminipa16" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-xl transition border border-slate-700 flex items-center gap-2">
+                    <i class="fab fa-github"></i> GitHub Profile
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 mt-20 py-8 bg-slate-950 text-center text-xs text-slate-500">
+        <p>© 2026 Most Rimi Moni. Built for Erasmus Mundus Application.</p>
+    </footer>
+
+</body>
+</html>
